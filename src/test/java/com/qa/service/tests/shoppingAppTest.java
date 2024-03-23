@@ -22,7 +22,7 @@ public class shoppingAppTest {
 		sp = new ShoppingPage();
 	}
 	
-	@Test
+	
 	@DataProvider
 	public Object testData(){
 		
