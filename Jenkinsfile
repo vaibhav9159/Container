@@ -49,7 +49,7 @@ pipeline
             def suiteXmlFilePath = 'src/test/resources/testrunner/testng.xml'
             def dockerCommand = """
                 docker run --name apitesting${BUILD_NUMBER} \
-                -v "${WORKSPACE}/reports:/app/reports" \
+                
                 vaibhavs07/apitest:latest \
                 /bin/bash -c "mvn test -Dsurefire.suiteXmlFiles=${suiteXmlFilePath}"
             """
@@ -59,9 +59,7 @@ pipeline
             if (exitCode != 0) {
                 currentBuild.result = 'FAILURE'
             }
-            sh "docker start apitesting${BUILD_NUMBER}"
-            sh "docker cp apitesting${BUILD_NUMBER}:/app/target/APIExecutionReport.html ${WORKSPACE}/target"
-            sh "docker rm -f apitesting${BUILD_NUMBER}"
+           
         }
     }
 }
