@@ -47,7 +47,7 @@ pipeline
     steps {
         script {
           
-    def exitCode = sh(script:"docker run --name apitesting${BUILD_NUMBER} -e MAVEN_OPTS= -Dsurefire.suiteXmlFiles = src/test/resources/testrunner/testng.xml vaibhavs07/api:latest", returnStatus: true)
+    def exitCode = sh(script:"docker run --name apitesting${BUILD_NUMBER} -e MAVEN_OPTS='-Dsurefire.suiteXmlFiles = src/test/resources/testrunner/testng.xml' vaibhavs07/api:latest", returnStatus: true)
         
             
             if (exitCode != 0) {
