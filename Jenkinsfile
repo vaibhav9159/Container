@@ -46,7 +46,7 @@ pipeline
       stage('Run Docker Image with Regression Tests') {
     steps {
         script {
-            def suiteXmlFilePath = 'src/test/resources/testrunners/testng.xml'
+            def suiteXmlFilePath = 'src/test/resources/testrunner/testng.xml'
             def dockerCommand = """
                 docker run --name apitesting${BUILD_NUMBER} \
                 -v "${WORKSPACE}/reports:/app/reports" \
