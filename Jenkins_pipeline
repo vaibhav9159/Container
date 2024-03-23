@@ -36,7 +36,7 @@ pipeline
         stage('Regression API Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/vaibhav9159/RAFWPlaces.git'
+                    git 'https://github.com/vaibhav9159/Container.git'
                     sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunner/testng.xml"
                     
                 }
@@ -69,7 +69,7 @@ pipeline
         stage('Sanity Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/vaibhav9159/RAFWPlaces.git'
+                    git 'https://github.com/vaibhav9159/Container.git'
                     sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunner/testng.xml"
                     
                 }
