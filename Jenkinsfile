@@ -49,7 +49,7 @@ pipeline
             def suiteXmlFilePath = 'src/test/resources/testrunner/testng.xml'
             def dockerCommand = """
                 docker run --name apitesting${BUILD_NUMBER} \
-                -v
+                -v \
                 vaibhavs07/api:latest \
                 /bin/bash -c "mvn test -Dsurefire.suiteXmlFiles=${suiteXmlFilePath}"
             """
